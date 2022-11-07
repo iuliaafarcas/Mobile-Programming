@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/TitleLabel"
+        android:labelFor="@+id/UpdateTitleId" />
+    <EditText
+        android:id="@+id/UpdateTitleId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Insert title here.."
+        android:inputType="text" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/AgeLabel"
+        android:labelFor="@+id/UpdateAgeId" />
+
+    <EditText
+        android:id="@+id/UpdateAgeId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Insert age here.."
+        android:visibility="visible" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/BenefitsLabel"
+        android:labelFor="@+id/UpdateBenefitsId" />
+
+    <EditText
+        android:id="@+id/UpdateBenefitsId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Insert benefits here.."
+
+        android:inputType="text" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/DescriptionLabel"
+        android:labelFor="@+id/UpdateDescriptionId" />
+
+    <EditText
+        android:id="@+id/UpdateDescriptionId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Insert description here.."/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/TypeLabel"
+        android:labelFor="@+id/UpdateTypeId" />
+    <Spinner
+        android:id="@+id/UpdateTypeId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"/>
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/UpdateFinalButtonId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="33dp"
+            android:text="@string/UpdateButton" />
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
