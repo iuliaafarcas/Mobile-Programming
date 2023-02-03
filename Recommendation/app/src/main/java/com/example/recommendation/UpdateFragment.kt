@@ -12,6 +12,8 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.example.recommendation.data.Datasource
+import com.example.recommendation.model.Recommendation
+import com.example.recommendation.model.TypeEnum
 
 
 class UpdateFragment : Fragment() {
@@ -35,7 +37,7 @@ class UpdateFragment : Fragment() {
         )
         arguments?.let {
             recommendationId=it.getInt(recommendationIdString)
-            val recommendation = datasource.findById(recommendationId)
+            val recommendation = datasource.getData(recommendationId)
             view.findViewById<EditText>(R.id.UpdateTitleId).setText(recommendation?.title)
             view.findViewById<EditText>(R.id.UpdateAgeId).setText(recommendation?.recommendedAge.toString())
             view.findViewById<EditText>(R.id.UpdateDescriptionId)
@@ -93,7 +95,7 @@ class UpdateFragment : Fragment() {
                 TypeEnum.valueOf(deleteSpacesAndAddUppercase(type)),
                 recommendationId
             )
-            datasource.updateItem(recommendation)
+            datasource.updateData(recommendation)
             val toast: Toast =
                 Toast.makeText(requireContext(), "Updated successfully!", Toast.LENGTH_SHORT)
             toast.show()

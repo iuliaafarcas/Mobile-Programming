@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,12 +33,20 @@ class HomeFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
+
+        datasource.connected.observe(viewLifecycleOwner){
+            adapter.setConnected(it)
+            view.findViewById<TextView>(R.id.NotConnectedToServer).isVisible = !it
+        }
+
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        adapter = ItemAdapter(requireContext(), datasource.recommendationList)
+        adapter = ItemAdapter(requireContext()) { id ->
+            datasource.removeData(id)
+        }
         recyclerView.adapter = adapter
         datasource.recommendationList.observe(requireActivity()) {
-            adapter.notifyDataSetChanged()
+            adapter.setRecommendations(it)
         }
         return view
 

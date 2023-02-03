@@ -11,8 +11,9 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.findFragment
 import com.example.recommendation.data.Datasource
+import com.example.recommendation.model.Recommendation
+import com.example.recommendation.model.TypeEnum
 
 
 class CreateFragment : Fragment() {
@@ -75,9 +76,10 @@ class CreateFragment : Fragment() {
                 age.toInt(),
                 benefits,
                 description,
-                TypeEnum.valueOf(deleteSpacesAndAddUppercase(type))
+                TypeEnum.valueOf(deleteSpacesAndAddUppercase(type)),
+                null
             )
-            datasource.addItemToList(recommendation)
+            datasource.addData(recommendation)
             val toast: Toast =
                 Toast.makeText(requireContext(), "Added successfully!", Toast.LENGTH_SHORT)
             toast.show()

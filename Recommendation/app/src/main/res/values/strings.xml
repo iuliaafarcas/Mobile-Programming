@@ -22,6 +22,9 @@
     <string name="UpdateButton">Update</string>
     <string name="DeleteButton">Delete</string>
 
+    <string name="NotConnectedToServer">The device is not connected to the server</string>
+
+
 
 
 
